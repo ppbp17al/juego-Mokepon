@@ -1,2 +1,2 @@
 # juego-Mokepon
-Proyecto de la escuela de Desarrolo Web de Platzi 
+Proyecto de la escuela de Desarrollo Web de Platzi 
