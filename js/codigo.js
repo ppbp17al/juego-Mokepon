@@ -31,8 +31,8 @@ function aleatorio(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min)
   }
 function seleccionarMascotaJugador(){
-    let sectionSeleccionarMascota = document.getElementById('select-pet')
-    sectionSeleccionarMascota.style.display = 'none'
+    let sectionMascota = document.getElementById("select-pet")
+    sectionMascota.style.display = "none"
     
     let sectionSelectAtaque = document.getElementById("select-attack")
     sectionSelectAtaque.style.display = "block"

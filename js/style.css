@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@300&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #041562;
+}
+
+#seleccionar-pet {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  
+}
+
+
+
+.titulo {
+  color: white;
+  font-size: 48px;
+  font-family: 'Fredoka One', cursive;
+  text-align: center;
+}
+
+.subtitulo {
+  color: white;
+  font-size: 20px;
+}
+
+.tarjetas, .tarjetas-ataques {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.tarjeta-de-mokepon {
+  width: 230px;
+  height: 100px;
+  background: #11468F;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 25px;
+  margin: 5px;
+  border: white solid 1px;
+}
+
+.imagen-tarjeta {
+  width: 100px;
+  width: 80;
+}
+
+#boton-pets {
+  width: 180px;
+  height: 40px;
+  border-radius: 20px;
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  margin-top: 30px;
+}
+
+input {
+  display: none;
+}
+
+#select-attack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.boton-de-ataque {
+  background-color: #11468F;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 20px;
+  border-color: transparent;
+  width: 180px;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+}
+
+.mascota-vidas {
+  font-size: 18px;
+  color: white;
+  background: -moz-linear-gradient(grey);
+}
+
+#messages {
+  width: 600px;
+  background: url(/assets/battle.webp);
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-size: 35px;
+  margin-left: auto;
+  margin-right: auto;
+  color: black;
+  font-weight: 800;
+  -webkit-text-stroke: 0.1px red;
+}
+
+#boton-reiniciar {
+  border: none;
+  color: #11468F;
+  font-family: 'Poppins', sans-serif;
+}
+
+.ataques {
+  display: grid;
+  grid-template-columns: 120px 120px;
+  color: white;
+}
+
+#vidas-jugador, #vidas-enemigo {
+  font-size: 32px;
+  margin-bottom: 0;
+}
+
+.ataques-jugador, .ataques-enemigo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (max-width: 360px) {
+  .tarjetas, .tarjetas-ataques {
+    flex-direction: column;
+  }
+}

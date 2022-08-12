@@ -4,50 +4,81 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   
+    <link rel="stylesheet" href="./js/style.css">
     <title>Mokepon </title>
 </head>
 <body>
-    <h1>   🔮 MOKEPON 🔮 </h1>
     <section id="select-pet"></section>
-        <h2>Elige a tu mascota:</h2>
-        <label for="Piplup">Piplup</label>
+        <h1 class="titulo">   🔮 MOKEPON 🔮 </h1>
+        <h2 class="subtitulo">Elige a tu mascota:</h2>
+        
+        <div class="tarjetas">
+        <label class="tarjeta-de-mokepon" for="Piplup">Piplup
+            <img   class="imagen-tarjeta"  src="/assets/piplup.png" alt="">
+
+        </label>
         <input type="radio" name="pet" id="Piplup">
 
-        <label for="Sandile">Sandile </label>
+        <label  class="tarjeta-de-mokepon" for="Sandile">Sandile 
+            <img  class="imagen-tarjeta" src="/assets/sandile.png"  alt="">
+        </label>
         <input type="radio" name="pet" id="Sandile">
 
-        <label for="Litten">Litten</label>
+        <label  class="tarjeta-de-mokepon" for="Litten">Litten
+            <img  class="imagen-tarjeta" src="./assets/litten.png" alt="">
+        </label>
         <input type="radio" name="pet" id="Litten">
 
-        <label for="Volcanion">Volcanion</label>
+        <label class="tarjeta-de-mokepon"  for="Volcanion">Volcanion
+            <img  class="imagen-tarjeta" src="./assets/volcanion.png" alt="">
+        </label>
         <input type="radio" name="pet" id="Volcanion">
 
-        <label for="Swampter">Swampter</label>
+        <label  class="tarjeta-de-mokepon" for="Swampter">Swampter
+            <img  class="imagen-tarjeta" src="./assets/swampert.png" alt="">
+
+        </label>
         <input type="radio" name="pet" id="Swampter">
 
-        <label for="Heatmor">Heatmor</label>
+        <label class="tarjeta-de-mokepon"  for="Heatmor">Heatmor
+            <img  class="imagen-tarjeta" src="./assets/heatmor.png" alt="">
+
+        </label>
         <input type="radio" name="pet" id="Heatmor">
+        </div>
 
         <button id="boton-pets">Seleccionar</button>
 
     <section id="select-attack">
-        <h2>Elige tu Ataque</h2>
-        <p>Tu mascota <span id="mascota-jugador">nombre</span> tiene <span id="vidas-jugador">3</span> vidas</p>
-        <p>La mascota <span id="mascota-enemigo">n</span> del enemigo tiene <span id="vidas-enemigo">3</span> vidas</p>
-        <p>
-            <button id="boton-fire"> Fire🔥 </button>
-            <button id="boton-water">Water 💧</button>
-            <button id="boton-sand">Sand 🌱</button>
-        </p>
+        <h2 class="subtitulo">Elige tu Ataque</h2>
+        <p class="mascota-vidas" >Tu mascota <span id="mascota-jugador">nombre</span> tiene <span id="vidas-jugador">3</span> vidas</p>
+        <p class="mascota-vidas" >La mascota <span id="mascota-enemigo">n</span> del enemigo tiene <span id="vidas-enemigo">3</span> vidas</p>
+        <div class="tarjetas-ataques">
+            <button id="boton-fire" class="boton-de-ataque" > Fire🔥 </button>
+            <button id="boton-water" class="boton-de-ataque" >Water 💧</button>
+            <button id="boton-sand" class="boton-de-ataque" >Sand 🌱</button>
+        </div>
 
-    </section>
+        <div id="messages">
+            <p id="resultado">Mucha suerte</p>    
+            <section id="reiniciar">
+            <button id="boton-reiniciar">Reiniciar</button>
+            <div class="ataques">
+                <div class="ataques-jugador">
+                    <p id="vidas-jugador">3</p>
+                    <p id="mascota-jugador"></p>
+                    <div id="ataques-del-jugador"></div>
+                </div>
+                 <div class="ataques-enemigo">
+                 <p id="vidas-enemigo">3</p>
+                 <p id="mascota-enemigo"></p>
+                 <div id="ataques-del-enemigo"></div>
+                </div>
+            </div>
+         </div>
 
-    <section id="messages">
-        
-    </section>
-    <section id="reiniciar">
-        <button id="boton-reiniciar">Reiniciar</button>
+
+
     </section>
     <script src="./js/codigo.js"></script>
 </body>
