@@ -18,6 +18,9 @@ const ataquesDelEnemigo = document.getElementById('ataques-del-enemigo')
 const contenedorTarjetas = document.getElementById('contenedorTarjetas')
 const contenedorAtaques = document.getElementById('contenedorAtaques')
 
+const sectionVerMapa = document.getElementById("ver-mapa")
+const mapa = document.getElementById("mapa")
+
 let mokepones = []
 let ataqueJugador =[]
 let ataqueEnemigo = []
@@ -41,6 +44,8 @@ let victoriasJugador = 0
 let victoriasEnemigo = 0 
 let vidasJugador = 3
 let vidasEnemigo = 3
+let lienzo = mapa.getContext("2d")
+let intervalo 
 
 class Mokepon {
     constructor(nombre, foto, vida) {
@@ -48,6 +53,14 @@ class Mokepon {
         this.foto = foto
         this.vida = vida
         this.ataques = []
+        this.x = 20
+        this.y = 30
+        this.ancho = 80
+        this.alto = 80 
+        this.mapaFoto = new Image()
+        this.mapaFoto.src = foto 
+        this.velocidadX = 0
+        this.velocidadY = 0
     }
 }
 
@@ -119,6 +132,7 @@ mokepones.push(piplup,sandile,litten,volcanion,swampter,heatmor)
 function iniciarJuego() {
     
     sectionSeleccionarAtaque.style.display = 'none'
+    sectionVerMapa.style.display = "none"
 
     mokepones.forEach((mokepon) => {
         opcionDeMokepones = `
@@ -154,16 +168,19 @@ function seleccionarMascotaJugador() {
     sectionSeleccionarMascota.style.display = 'none'
     
     
-    sectionSeleccionarAtaque.style.display = 'flex'
+    //sectionSeleccionarAtaque.style.display = 'flex'
+    sectionVerMapa.style.display = "flex"
+    inciarMapa()
     
+   
     
-    
-    if (inputPiplup.checked) {
+     if (inputPiplup.checked) {
         spanMascotaJugador.innerHTML = inputPiplup.id
-        mascotaJugador = inputPiplup.id
+        mascotaJugador = inputPiplup.id 
     } else if (inputLitten.checked) {
         spanMascotaJugador.innerHTML = inputLitten.id
         mascotaJugador = inputLitten.id
+       
     } else if (inputSandile.checked) {
         spanMascotaJugador.innerHTML = inputSandile.id
         mascotaJugador = inputSandile.id
@@ -182,6 +199,7 @@ function seleccionarMascotaJugador() {
 
     extraerAtaques(mascotaJugador)
     seleccionarMascotaEnemigo()
+   
 }
 
 function extraerAtaques(mascotaJugador) {
@@ -201,6 +219,7 @@ function mostrarAtaques(ataques) {
         <button id=${ataque.id} class="boton-de-ataque BAtaque">${ataque.nombre}</button>
         `
         contenedorAtaques.innerHTML += ataquesMokepon
+        
     })
 
      botonFuego = document.getElementById('boton-fuego')
@@ -241,6 +260,8 @@ function seleccionarMascotaEnemigo() {
     spanMascotaEnemigo.innerHTML = mokepones[mascotaAleatoria].nombre
     ataquesMokeponEnemigo = mokepones[mascotaAleatoria].ataques
     secuenciaAtaque()
+
+   
 }
 
 
@@ -344,4 +365,78 @@ function aleatorio(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
+function pintarPersonaje(){
+    piplup.x = piplup.x + piplup.velocidadX
+    piplup.y = piplup.y + piplup.velocidadY
+    lienzo.clearRect(0, 0, mapa.width, mapa.height)
+    lienzo.drawImage(
+        piplup.mapaFoto,
+        piplup.x,
+        piplup.y,
+        piplup.ancho,
+        piplup.alto
+        )
+        
+    }
+    
+    function moverDerecha() {
+        piplup.velocidadX = 5 
+
+    }
+
+    function moverIzquierda() {
+        piplup.velocidadX = -5 
+        
+    }
+    function moverAbajo() {
+        piplup.velocidadY = +5 
+        
+    }
+    function moverArriba() {
+        piplup.velocidadY = -5
+        
+    }
+
+    function detenerMovimiento (){
+        piplup.velocidadX = 0
+        piplup.velocidadY = 0
+    }
+
+    function sePreionoUnaTecla(event) {
+        switch(event.key){
+            case "ArrowUp":
+                moverArriba()
+                break;
+            case "w":
+                moverArriba()
+                break;
+            case "ArrowDown":
+                moverAbajo()
+                break;
+            case "s":
+                    moverAbajo()
+                    break;
+            case "ArrowLeft":
+                moverIzquierda()
+                break;
+            case "a":
+                moverIzquierda()
+                break;
+            case "ArrowRight":
+                moverDerecha()
+                break;
+            case "d":
+                moverDerecha()
+                break;
+            default:
+                break;
+
+        }
+    }
+
+function inciarMapa() {
+    intervalo = setInterval(pintarPersonaje, 50)
+    window.addEventListener("keydown", sePreionoUnaTecla)
+    window.addEventListener("keyup", detenerMovimiento)
+}
 window.addEventListener('load', iniciarJuego)
